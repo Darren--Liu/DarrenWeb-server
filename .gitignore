@@ -8,4 +8,7 @@
 node_modules/
 
 # service_account.json
-service_account.json
+configs/service_account.json
+
+# npm-debug
+npm-debug.log
