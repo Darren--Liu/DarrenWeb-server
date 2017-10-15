@@ -3,7 +3,7 @@
 var firebaseRef = require('../configs/firebase');
 var profileRef = firebaseRef.child('profiles');
 
-exports.getByEmail = function (req, res, next) {
+exports.getByEmail = function (req, res) {
     var email = req.params.email;
     var queryRef = profileRef.orderByChild('email').equalTo(email).limitToLast(1);
     queryRef.once("value")
@@ -25,7 +25,7 @@ exports.getByEmail = function (req, res, next) {
         });
 };
 
-exports.create = function (req, res, next) {
+exports.create = function (req, res) {
     var first_name = req.body.first_name;
     var last_name = req.body.last_name;
     var avatar = req.body.avatar;

@@ -16,7 +16,7 @@
 //     next();
 // };
 
-exports.getUsers = function (req, res, next) {
+exports.getUsers = function (req, res) {
     // authentication(req, res, next);
     res.send('GET users listing.');
 };
