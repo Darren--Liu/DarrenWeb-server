@@ -15,9 +15,9 @@ var firebase = firebaseAdmin.initializeApp({
 
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 var db = firebaseAdmin.database();
-var ref = db.ref("restricted_access/secret_document");
+var ref = db.ref();
 ref.once("value", function(snapshot) {
     console.log(snapshot.val());
 });
 
-module.exports = firebase;
+module.exports = ref;

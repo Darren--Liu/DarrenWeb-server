@@ -13,8 +13,10 @@
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "firebase-admin": "^5.4.2",
+    "googleapis": "^22.2.0",
     "jade": "~1.11.0",
     "morgan": "^1.8.2",
+    "nodemon": "^1.12.1",
     "request": "^2.83.0",
     "restify": "^6.0.1",
     "serve-favicon": "^2.4.5"

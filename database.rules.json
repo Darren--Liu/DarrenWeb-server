@@ -1,6 +1,40 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    ".read": true,
+    ".write": true,
+
+    "profiles": {
+      ".write": "auth != null && auth.uid == $uid",
+      "profile": {
+        "first_name": {
+
+        },
+        "last_name": {
+
+        },
+        "avatar": {
+
+        },
+        "email": {
+
+        },
+        "mobile": {
+
+        },
+        "linkedin_link": {
+
+        },
+        "github_link": {
+
+        },
+        "position": {
+
+        },
+        "created_time": {
+
+        }
+      }
+    }
+
   }
 }

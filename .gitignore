@@ -12,3 +12,9 @@ configs/service_account.json
 
 # npm-debug
 npm-debug.log
+
+# custom_token
+custom_token.json
+
+# .DS_Store
+.DS_Store
