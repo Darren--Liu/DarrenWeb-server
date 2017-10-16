@@ -4,10 +4,19 @@ var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/profilesController');
 
-/* GET user profile. */
-router.get('/get/:email', controller.getByEmail);
+/** GET /get/:email
+ * Get user profile by email
+ */
+router.get('/get/:email', controller.getProfileByEmail);
 
-/* POST create new user profile */
-router.post('/create', controller.create);
+/** POST /create
+ * Create new user profile
+ */
+router.post('/create', controller.createProfile);
+
+/** PUT /update/:email
+ * Update user profile by email
+ */
+router.put('/update/:email', controller.updateProfileByEmail);
 
 module.exports = router;
