@@ -1,6 +1,7 @@
 'use strict';
 
-var firebaseRef = require('../configs/firebase');
+var firebaseConfig = require('../configs/firebaseConfig');
+var firebaseRef = firebaseConfig.ref;
 var profileRef = firebaseRef.child('profiles');
 
 var keyEmail = 'email';
@@ -95,6 +96,8 @@ exports.updateProfileByEmail = function (req, res) {
                                });
                            });
                        })
+               } else {
+               // TODO:
                }
            } else {
                return res.status(404).send({

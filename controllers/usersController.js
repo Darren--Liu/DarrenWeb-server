@@ -1,11 +1,15 @@
 'use strict';
 
-// var auth = require('../controllers/authController');
+var auth = require('../controllers/authController');
+
+var firebaseConfig = require('../configs/firebaseConfig');
+var firebaseRef = firebaseConfig.ref
+var userRef = firebaseRef.child('users');
 
 /* Use idTokenVerfication middleware to verify a user token sent from client side */
-// router.use(function (req, res, next) {
-//    user.idTokenVerification(req, res, next);
-// });
+var authentication = function (req, res) {
+    auth.idTokenVerification(req, res);
+};
 
 // /** Use accessTokenVerification middleware to verify a user with email
 //  *
@@ -16,7 +20,20 @@
 //     next();
 // };
 
+/** GET /get/
+ * Get user info by email
+ */
 exports.getUsers = function (req, res) {
-    // authentication(req, res, next);
-    res.send('GET users listing.');
+    var authStatus = auth.checkAuthStatus(req);
+    return res.status(authStatus.code).send({
+        success: authStatus.success,
+        message: authStatus.message
+    });
+};
+
+/** POST /login
+ * Sign user by idToken
+ */
+exports.login = function (req, res) {
+    authentication(req, res);
 };

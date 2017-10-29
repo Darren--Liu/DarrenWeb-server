@@ -4,8 +4,14 @@ var compression = require('compression');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
+// Session configs
+var sessionConfig = require('./configs/session_config.json');
+var redisConfig = require('./configs/redisConfig.json');
 
 // Routers
 var index = require('./routes/index');
@@ -32,8 +38,20 @@ app.use(logger('dev'));
 // Use bodyParser to get info from POST and/or URL parameters
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    // store: new RedisStore(redisConfig),
+    secret: sessionConfig.session_secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        path: '/',
+        httpOnly: true,
+        secure: false,
+        maxAge: null
+    }
+}));
 
 // Routers
 app.use('/', index);

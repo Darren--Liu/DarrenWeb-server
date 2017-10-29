@@ -69,4 +69,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# session_config.json
+configs/session_config.json
 
+# redisConfig.json
+configs/redisConfig.json

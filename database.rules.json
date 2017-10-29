@@ -5,6 +5,7 @@
 
     "profiles": {
       ".write": "auth != null && auth.uid == $uid",
+      ".indexOn": "email",
       "profile": {
         "first_name": {
 
@@ -16,7 +17,6 @@
 
         },
         "email": {
-
         },
         "mobile": {
 
