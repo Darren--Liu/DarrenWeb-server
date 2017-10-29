@@ -1,12 +1,6 @@
 # .idea
 .idea
 
-# service_account.json
-configs/service_account.json
-
-# custom_token
-custom_token.json
-
 # .DS_Store
 .DS_Store
 ### Node template
@@ -69,8 +63,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# session_config.json
-configs/session_config.json
-
-# redisConfig.json
-configs/redisConfig.json
+# config files
+/configs/custom_token.json
+/configs/redisConfig.json
+/configs/service_account.json
+/configs/session_config.json
